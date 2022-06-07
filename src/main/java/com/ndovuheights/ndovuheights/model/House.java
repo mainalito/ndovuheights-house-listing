@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class House {
     @Id
+    @Column(unique = true)
     private String roomNumber;
     private String roomType;
     private double price;

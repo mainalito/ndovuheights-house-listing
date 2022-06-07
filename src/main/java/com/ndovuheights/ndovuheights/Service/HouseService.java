@@ -6,17 +6,19 @@ import java.util.Optional;
 import javax.naming.NameNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ndovuheights.ndovuheights.Repository.HouseRepository;
 import com.ndovuheights.ndovuheights.model.House;
 
+@Service
 public class HouseService implements HouseMethods {
 
     @Autowired
     private HouseRepository houseRepository;
     @Override
     public void saveRoom(House house) {
-        house.setStatus(false);
+    
         houseRepository.save(house);
         
     }
@@ -28,8 +30,8 @@ public class HouseService implements HouseMethods {
     }
 
     @Override
-    public House fetchOneRoom(String roomNumber) {
-      return houseRepository.findById(roomNumber).get();
+    public Optional<House> fetchOneRoom(String roomNumber) {
+      return houseRepository.findById(roomNumber);
         
     }
 
