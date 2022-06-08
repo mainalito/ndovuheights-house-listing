@@ -14,9 +14,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class House {
     @Id
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String roomNumber;
+    @Column(nullable = false)
     private String roomType;
+    @Column(nullable = false)
     private double price;
+    @Column(nullable = false)
     private boolean status;
 }
